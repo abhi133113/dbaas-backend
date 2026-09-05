@@ -15,6 +15,11 @@ const model = genAI.getGenerativeModel({
   systemInstruction: "You are the autonomous DBaaS orchestrator for BP. You are responsible for provisioning and analyzing databases. Be extremely professional. Keep your responses crisp and formatted in Markdown. When the user asks for a database action, you MUST use the provided tools to execute it natively."
 });
 
+// Root health check so the browser doesn't throw Cannot GET /
+app.get('/', (req, res) => {
+  res.send('Agentic DBaaS Backend is Live and Online! The API is listening on /api/chat');
+});
+
 // Start a fresh chat per request for simplicity in this demo
 app.post('/api/chat', async (req, res) => {
   try {
