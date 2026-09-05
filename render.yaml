@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: agentic-dbaas-backend
+    env: node
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: PORT
+        value: 3000
+      - key: GEMINI_API_KEY
+        sync: false
